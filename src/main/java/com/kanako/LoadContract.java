@@ -8,7 +8,6 @@ import org.web3j.tx.RawTransactionManager;
 import org.web3j.tx.TransactionManager;
 import org.web3j.tx.gas.DefaultGasProvider;
 
-import java.io.IOException;
 import java.math.BigInteger;
 
 public class LoadContract {
