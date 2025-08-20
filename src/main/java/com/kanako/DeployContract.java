@@ -40,5 +40,7 @@ public class DeployContract {
 
         String contractAddress = contract.getContractAddress();
         System.out.println("Smart contract deployed at address: " + contractAddress);
+
+        web3j.shutdown();
     }
 }

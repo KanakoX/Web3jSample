@@ -38,7 +38,10 @@ public class LoadContract {
                 transactionManager,
                 new DefaultGasProvider()
         );
+        // 调用合约中的 balanceOf 状态变量
         BigInteger retval = contract.balanceOf(accountAddress).send();
         System.out.println(retval);
+
+        web3j.shutdown();
     }
 }
