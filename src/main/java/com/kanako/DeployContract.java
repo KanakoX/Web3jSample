@@ -27,7 +27,7 @@ public class DeployContract {
         TransactionManager transactionManager = new RawTransactionManager(
                 web3j,
                 credentials,
-                BSC_TESTNET_CHAIN_ID // 传入 BSC 测试网的链 ID
+                BSC_TESTNET_CHAIN_ID  // 传入 BSC 测试网的链 ID
         );
 
         // 合约部署

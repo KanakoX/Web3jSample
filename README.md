@@ -54,3 +54,38 @@
 </plugin>
 ```
 
+## 实现流程
+连接到节点
+``` java
+Web3j web3j = Web3j.build(new HttpService(NODE-URL));
+```
+加载私钥
+``` java
+Credentials credentials = Credentials.create(privateKey);
+```
+部分测试网需要链 ID 信息，使用 `TransactionManager` 封装私钥和链 ID
+``` java
+TransactionManager transactionManager = new RawTransactionManager(
+        web3j,
+        credentials,
+        BSC_TESTNET_CHAIN_ID  // 传入 BSC 测试网的链 ID
+);
+```
+部署、加载合约
+``` java
+// 合约部署
+MyToken contract = MyToken.deploy(
+        web3j,
+        transactionManager,
+        new DefaultGasProvider(),
+        "KnkToken", "KKT", BigInteger.valueOf(18)
+).send();
+
+// 合约加载
+MyToken contract = MyToken.load(
+        contractAddress,
+        web3j,
+        transactionManager,
+        new DefaultGasProvider()
+);
+```

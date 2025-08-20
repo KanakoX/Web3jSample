@@ -28,7 +28,7 @@ public class LoadContract {
         TransactionManager transactionManager = new RawTransactionManager(
                 web3j,
                 credentials,
-                BSC_TESTNET_CHAIN_ID // 传入 BSC 测试网的链 ID
+                BSC_TESTNET_CHAIN_ID  // 传入 BSC 测试网的链 ID
         );
 
         // 加载合约
@@ -36,7 +36,8 @@ public class LoadContract {
                 contractAddress,
                 web3j,
                 transactionManager,
-                new DefaultGasProvider());
+                new DefaultGasProvider()
+        );
         BigInteger retval = contract.balanceOf(accountAddress).send();
         System.out.println(retval);
     }
